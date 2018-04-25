@@ -14,18 +14,17 @@
 
 <body>
 
-  <div>
-  <img src= "http://progressiveradiology.com/images/site-design/logo.png" /img><br>
-  <a href="http://progressiveradiology.com/">Homepage<a>
-<h2 class="Titlepage">Oral and IV Contrast Indication</h2>
-    <p>for quick referencing only, the ordering physician will order contrast as needed.<p>
-  <i><h5>by common diagnosis (Click body part below)</h5></i>
+   <div class="center"><img src= "http://progressiveradiology.com/images/site-design/logo.png"/img><br>
+   </div>
+    <h2 class="Titlepage">Oral and IV Contrast Indication</h2>
+    <p class="center">for quick referencing only, the ordering physician will order contrast as needed.<p>
+  <i><h5 class="center">by common diagnosis (Click body part below)</h5></i>
 <br>
-    <br>
-        <br>
-    <label class="collapse" for="_1"><h3>Head</h3></label>
-<input id="_1" type="checkbox"> 
-<div> <li><button class= "clean" onclick="alert('with and without contrast, should be CTA Brain')">Aneurysm</button></li>
+    <label class="collapse" for="_1"><h3>HEAD</h3></label>
+      <input id="_1" type="checkbox">
+<div class="center">
+  
+  <ul class="bullet"><li><button class= "clean" onclick="alert('with and without contrast, should be CTA Brain')">Aneurysm</button></li>
   
 <li><button class=clean onclick="alert('NON CONTRAST')">Double Vision</button></li>
   
@@ -46,14 +45,26 @@
         <li><button class=clean onclick="alert('NON CONTRAST')">Stroke</button></li>
   
         <li><button class=clean onclick="alert('NON CONTRAST')">TIA</button></li>
-      </ul></div>
+      </ul></div class="center">
       
-      
-    <label class="collapse" for="_2"><h3>Neck</h3></label>
+       <label class="collapse" for="_6"><h3>SINUS</h3></label>
+<input id="_6" type="checkbox"> 
+<div class="center">
+  <ul class="bullet">
+  <li><button class="clean" onclick="alert('NON CONTRAST')">Congestion</button></li>
+  
+  <li><button class= "clean" onclick="alert('NON CONTRAST')">Pain/Headaches</button></li>
+  
+    <li><button class= "clean" onclick="alert('NON CONTRAST')">Sinusitis</button></li>
+  
+  </ul>
+    </div>
+        
+    <label class="collapse" for="_2"><h3>NECK</h3></label>
 <input id="_2" type="checkbox"> 
     
     
-<div> <li><button class= "clean" onclick="alert('IV Contrast, Change to CTA Neck')">Aneurysm/Stenosis</button></li>
+<div class="center"><ul class="bullet"> <li><button class= "clean" onclick="alert('IV Contrast, Change to CTA Neck')">Aneurysm/Stenosis</button></li>
   
 <li><button class=clean onclick="alert('IV CONTRAST')">Cancer</button></li>
         
@@ -77,9 +88,10 @@
   
   </ul></div>
   
-      <label class="collapse" for="_3"><h3>Chest</h3></label>
+  <label class="collapse" for="_3"><h3>CHEST</h3></label>
 <input id="_3" type="checkbox"> 
-  <div>
+  <div class=center>
+    <ul class="bullet">
      <li><button class=clean onclick="alert('IV CONTRAST Change order to CTA Chest')">Aneurysm, TAA, Dissection</button></li>
 
          <li><button class=clean onclick="alert('NON CONTRAST')">Asbestosis</button></li>
@@ -116,10 +128,10 @@
     
       </ul></div>
       
-      <label class="collapse" for="_4"><h3>Abdomen/Pelvis</h3></label>
+<label class="collapse" for="_4"><h3>ABDOMEN/PELVIS</h3></label>
 <input id="_4" type="checkbox"> 
-  <div>
-      
+  <div class="center">
+      <ul class="bullet">
              <li><button class=clean onclick="alert('IV and ORAL CONTRAST')">Abdominal Pain</button></li>
     
              <li><button class=clean onclick="alert('IV CONTRAST-Change order to CTA Abd/Pel')">Aneurysm</button></li>
@@ -167,10 +179,10 @@
     </ul>
 </div>
 
-      <label class="collapse" for="_5"><h3>Extremities (Hands feet legs, knees..)</h3></label>
+<label class="collapse" for="_5"><h3>EXTREMITIES</h3></label>
 <input id="_5" type="checkbox"> 
-  <div>
-    <ul>
+  <div class="center">
+    <ul class="bullet">
       
                    <li><button class=clean onclick="alert('NON CONTRAST')">Fracture/Injury</button></li>
       
