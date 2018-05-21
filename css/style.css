@@ -56,13 +56,9 @@ body{background-color: light-grey}
     text-align: center;
 }
 
+
+
 .hidden{
-  padding: 10px 10px;
-  color: red;
-  background-color: red;
-  border: none;
-}
-.hidden:hover{
-  background-color:white;
-  transition-delay: 0.4s;
+  margin: auto;
+  
 }
