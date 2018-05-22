@@ -3,10 +3,16 @@
   text-align: center;
 }
 
-body{background-color: light-grey}
+body{background-color: white}
 
 .center{
   text-align: center;
+}
+
+.center2{
+    margin: auto;
+    width: 50%;
+    padding: none;
 }
 
 .bullet{
