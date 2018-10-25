@@ -1,70 +1,82 @@
-.Titlepage{
-  color:Blue;
+@import url(https://fonts.googleapis.com/css?family=Open+Sans);
+
+
+body{
+  background: #f2f2f2;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.header{
+     color: #8ea59a;
+  font-size: 17px;
+}
+
+#userInput{
+  float: left;
+  width: 100%;
+  border: 3px solid #00B4CC;
+  padding: 5px;
+  height: 20px;
+  border-radius: 5px;
+  outline: none;
+  color: #9DBFAF;
+}
+.search {
+  width: 100%;
+  position: relative;
+}
+#goButton{
+  position: absolute;  
+  width: 35px;
+  height: 35px;
+  border: 1px solid #00B4CC;
+  background: #00B4CC;
   text-align: center;
-}
-
-body{background-color: white}
-
-.center{
-  text-align: center;
-}
-
-.center2{
-    margin: auto;
-    width: 50%;
-    padding: none;
-}
-
-.bullet{
-  list-style-type: none;
-}
-
-.clean{
-  font-size: 13px; 
-  color: white;
-  background-color: #b3b3b3;
-  cursor: pointer;  
-  border: none;
-  width: 90%;
-}
-
-.clean:hover{
-  background-color: #666666;
-}
-
-.collapse{
+  color: #fff;
+  border-radius: 7px;
   cursor: pointer;
-  display: block;
+  font-size: 20px;
+}
+
+
+
+#pagewrap{
+  position: absolute;
+  width: 30%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   text-align: center;
-  background-color: #008CBA;
-  color: white;
-  font-family: "Lucida Console", Monaco, monospace;
 }
-
-.collapse:hover{
-  background-color:#87abe5;
-     box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
-}
-
-.collapse + input{
-  display: none; /**/
-}
-.collapse + input + div{
-  display:none;
-}
-.collapse + input:checked + div{
-  display:block;
+#results{
+  position: absolute;
+  text-align: center;
+  z-index: -1;
+  left: 13%;
+  color: #849e92;
+  
   
 }
 
-.end{
-  color: grey;
-    text-align: center;
+#dropdown{
+  padding: 0px;
+  position: absolute;
+  left: -99pt;
+  top: 0.5pt;
+  width: 98pt;
+  height: 26pt;
+  border: 0px solid #00B4CC;
+  background: #00B4CC;
+  color: #fff;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+  color: afd3c2; 
+  
 }
 
-
-
-.hidden{
-  margin: auto;
-  
+.footer{
+   color: #849e92;
+  font-size: 11px;
 }
