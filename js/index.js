@@ -2,7 +2,6 @@ var source1 = []
 var databank = document.getElementById("dropdown").value;
 
 
-
 function lowerit(obj) {
   obj.value=obj.value.toLowerCase();
 }
@@ -10,9 +9,16 @@ function lowerit(obj) {
 function precheck(obj){
   var databank = document.getElementById("dropdown").value;
   if (databank == "1"){
-    document.getElementById("results").innerHTML = "<br><br><font color = red><i>dude, dont forget to select a body part.</i></font color>" ;  
+    document.getElementById("tooltip").style.visibility = "visible";
+     document.getElementById("tooltiptext").style.visibility = "visible";
     return false;
+    if(databank =! "1"){
+     document.getElementById("tooltip").style.visibility = "hidden";
+     document.getElementById("tooltiptext").style.visibility = "hidden";
+    }
 }else{
+  document.getElementById("tooltip").style.visibility = "hidden";
+     document.getElementById("tooltiptext").style.visibility = "hidden";
     return true;   
  }
 }
@@ -27,7 +33,7 @@ function changeinfo(){
     source1.splice(1, 500, "headache", "headaches", "migraines", "migraine", "trauma", "fall", "injury", "pain", "double vision", "memory changes", "memory change", "memory loss", "uneven gait", "gait", "abnormal gait", "imbalance", "dizzy","dizzyness", "altercation", "loc", "loss of consciousness", "bleed", "tia", "stroke", "hemorrhage", "subarachnoid hemorrhage", "hydro", "hydrocephalus", "shunt", "aneurysm", "mass", "circle of willis", "cow", "cancer", "mets", "metastatic", "metastatic disease");
     }else{
       if (databank == "3"){
-    source1.splice(1, 500, "stone", "stones", "salivary gland stones", "salivary gland stone", "Ä", "Ä", "Ä", "Ä", "Ä", "Ä", "Ä", "Ä", "Ä", "Ä", "Ä", "Ä", "Ä", "Ä", "Ä", "Ä", "Ä", "Ä", "Ä", "Ä", "Ä", "Ä", "Ä", "Ä", "Ä", "♠", "♠", "♠", "♠", "♠", "♠", "♠", "♠", "♠", "♠", "♠", "♠", "♠", "♠", "♠", "♠","lymph nodes", "enlarged lymph node", "lymph node", "lymphadenopathy", "aneurysm", "carotid", "carotid artery", "carotid arteries", "stenosis", "carotid artery stenosis", "carotid endarterectomy", "endarterectomy", "aneurysm", "enlarged node", "palpable mass", "mass", "tumor", "cancer", "vocal chords", "paralyzed vocal chords", "vocal chord", "paralysis", "thyroid", "thyroid mass", "pain", "sialadenitis", "δ", "δ", "δ", "Ü", "Ü", "Ü", "Ü", "Ü", "Ü", "Ü", "Ü", "Ü", "Ü", "Ü", "Ü", "Ü", "Ü", "Ü", "Ü", "Ü", "Ü", "Ü", "Ü", "Ü", "Ü", "Ü", "Ü", "Ü", "Ü", "Ü", "Ü", "Ü", "Ü", "Ü", "Ü", "Ü", "Ü", "Ü", "Ü", "Ü", "Ü", "Ü", "Ü", "Ü", "Ü", "Ü", "Ü", "Ü", "Ü", "Ü", "Ü", "Ü", "Ü", "Ü", "Ü", "Ü", "Ü", "Ü", "Ü", "Ü", "Ü", "Ü", "Ü", "Ü", "Ü", "Ü", "Ü", "Ü", "Ü", "Ü", "Ü", "Ü", "Ü", "Ü", "Ü", "Ü", "Ü", "Ü",  "poop", "work sucks", "poo", "i hate you", "shit", "fuck", "ass", "poopy", "advanced radiology", "adrian"); 
+    source1.splice(1, 500, "stone", "stones", "salivary gland stones", "salivary gland stone", "Ä", "Ä", "Ä", "Ä", "Ä", "Ä", "Ä", "Ä", "Ä", "Ä", "Ä", "Ä", "Ä", "Ä", "Ä", "Ä", "Ä", "Ä", "Ä", "Ä", "Ä", "Ä", "Ä", "Ä", "Ä", "♠", "♠", "♠", "♠", "♠", "♠", "♠", "♠", "♠", "♠", "♠", "♠", "♠", "♠", "♠", "♠","lymph nodes", "enlarged lymph node", "lymph node", "lymphadenopathy", "aneurysm", "carotid", "carotid artery", "carotid arteries", "stenosis", "carotid artery stenosis", "carotid endarterectomy", "endarterectomy", "aneurysm", "enlarged node", "palpable mass", "mass", "tumor", "cancer", "vocal chords", "paralyzed vocal chords", "vocal chord", "paralysis", "thyroid", "thyroid mass", "pain", "sialadenitis", "mets", "δ", "δ", "Ü", "Ü", "Ü", "Ü", "Ü", "Ü", "Ü", "Ü", "Ü", "Ü", "Ü", "Ü", "Ü", "Ü", "Ü", "Ü", "Ü", "Ü", "Ü", "Ü", "Ü", "Ü", "Ü", "Ü", "Ü", "Ü", "Ü", "Ü", "Ü", "Ü", "Ü", "Ü", "Ü", "Ü", "Ü", "Ü", "Ü", "Ü", "Ü", "Ü", "Ü", "Ü", "Ü", "Ü", "Ü", "Ü", "Ü", "Ü", "Ü", "Ü", "Ü", "Ü", "Ü", "Ü", "Ü", "Ü", "Ü", "Ü", "Ü", "Ü", "Ü", "Ü", "Ü", "Ü", "Ü", "Ü", "Ü", "Ü", "Ü", "Ü", "Ü", "Ü", "Ü", "Ü", "Ü",  "poop", "work sucks", "poo", "i hate you", "shit", "fuck", "ass", "poopy", "advanced radiology", "adrian"); 
   }else{
       if (databank == "4"){
     source1.splice(1, 500, "asbestosis", "bronchiectasis", "cough", "copd", "chronic obstrusctive pulmonary disease", "emphysema", "ill", "interstitial lung disease", "low dose", "low-dose", "screening", "nodule", "pulmonary nodule", "nodules", "pulmonary nodules", "ground glass", "ground-glass", "sarcoidosis", "sarcoid", "Ä", "Ä", "Ä", "Ä", "Ä", "Ä", "Ä", "Ä", "Ä", "Ä", "♠", "♠", "♠", "♠", "♠", "♠", "♠", "♠", "♠", "♠", "♠", "♠", "♠", "♠", "♠", "♠", "aneurysm", "taa", "thoracic aortic aneurysm", "ascending aorta", "aortic dilation", "dilation", "dissection", "graft", "stent", "cancer", "mets", "metastatic", "metastatic disease", "lung mets", "cancer", "weight loss", "wt loss", "thoracic outlet", "thoracic outlet syndrome", "pe", "pulmonary embolism", "embolism", "sob", "shortness of breath", "sarcoma", "lymph nodes", "enlarged lymph node", "lymph node", "lymphadenopathy", "Ü", "Ü", "Ü", "Ü", "Ü", "Ü", "Ü", "Ü", "Ü", "Ü", "Ü", "Ü", "Ü", "Ü", "Ü", "Ü", "Ü", "Ü", "Ü", "Ü", "Ü", "Ü", "Ü", "Ü", "Ü", "Ü", "Ü", "Ü", "Ü", "Ü", "Ü", "Ü", "Ü", "Ü", "Ü", "Ü", "Ü", "Ü", "Ü", "Ü", "Ü", "Ü", "Ü", "Ü", "Ü", "Ü", "Ü", "Ü", "Ü", "Ü", "Ü", "Ü", "Ü", "Ü", "Ü", "Ü", "Ü", "Ü", "Ü", "Ü", "Ü", "Ü", "Ü", "Ü", "Ü", "Ü", "Ü", "Ü", "Ü", "Ü", "Ü", "Ü", "Ü", "Ü", "Ü", "Ü", "Ü", "poop", "work sucks", "poo", "i hate you", "shit", "fuck", "ass", "poopy", "advanced radiology", "adrian"); 
@@ -55,24 +61,24 @@ function search(){
   var action = source1.indexOf(input.trim());
   
   if (action > -1&&action <= 28){
-  document.getElementById("results").innerHTML = "<br>non contrast - no oral no iv";     
+  document.getElementById("results").innerHTML = "<br>non contrast - no oral no iv<br><br><font color = red>Use this only as a quick guide, the referring provider may order contrast differently.</font color>";     
   }else{
   if (action > 28&&action <=44){
-  document.getElementById("results").innerHTML = "<br>with and without <font color=red>iv contrast</font color> -<font color=blue> no oral contrast</font color>"; 
+  document.getElementById("results").innerHTML = "<br>with and without <font color=red>iv contrast</font color>-<font color=blue> no oral contrast</font color><br><br><font color = red>Use this only as a quick guide, the referring provider may order contrast differently.</font color>"; 
   }else{
     if (action > 44&&action <=74){
-      document.getElementById("results").innerHTML = "<br>iv contrast only"
+      document.getElementById("results").innerHTML = "<br>iv contrast only<br><br><font color = red>Use this only as a quick guide, the referring provider may order contrast differently.</font color>"
       }else{
     if (action > 74&&action <=140){
-      document.getElementById("results").innerHTML = "<br>Oral and IV Contrast"
+      document.getElementById("results").innerHTML = "<br>Oral and IV Contrast<br><br><font color = red>Use this only as a quick guide, the referring provider may order contrast differently.</font color>";
     }else{
        if (action > 140&&action <=148){
-      document.getElementById("results").innerHTML = "<br>This is likely an arthrogram, check script."
+      document.getElementById("results").innerHTML = "<br>This is likely an arthrogram, check script.<br><br><font color = red>Use this only as a quick guide, the referring provider may order contrast differently.</font color>";
        }else{
      if (action > 148&&action <=160){
       document.getElementById("results").innerHTML = "<br>error 404, bad language is reported to manager, just kidding."
-  }else{  
-  document.getElementById("results").innerHTML = "<br><i><font color = red>I'm sorry I couldnt find an answer for that, try:</i> <br><br></font color>1.Checking the spelling and try again.<br>2. Try a similiar word (ex:<strike> hurts</strike> pain )<br>3. Did you select the appropriate body part?<br>Otherwise, please call Adrian in CT. :)";
+  }else{ 
+  document.getElementById("results").innerHTML = "<br><i><font color = red>I'm sorry I couldnt find an answer for that, try:</i> <br><br></font color>1.Checking the spelling and search again.<br>2. Try a similiar word (ex:<strike> hurts</strike> pain )<br>3. Did you select the appropriate body part?<br>Otherwise, please call Adrian in CT. :)";
   }
   }
     }
