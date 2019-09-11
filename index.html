@@ -1,55 +1,41 @@
 <!DOCTYPE html>
 <html lang="en" >
-
 <head>
   <meta charset="UTF-8">
   <title>Search string</title>
-  
-  
-  
-      <link rel="stylesheet" href="css/style.css">
-
-  
+  <link rel="stylesheet" href="./style.css">
 </head>
-
 <body>
-
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
-
-<div id = "pagewrap"><br><br>
-  <p class="header">DOES THIS NEED CONTRAST?</p><br><br>
+<!-- partial:index.partial.html -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<div id = "pagewrap">
+  
+  <p class="header">DOES THIS NEED CONTRAST?</p><br>
   <div class = "search">
     <select id ="dropdown" onchange="changeinfo()">
   <option value="1" disabled selected>Select body part</option>
-  <option value="2">Head</option>
-  <option value="3">Neck</option>
-  <option value="4">Chest</option>
-  <option value="5">Abdomen Pelvis</option>
-  <option value="6">Extremities</option><br>
+  <option value="2">HEAD</option>
+  <option value="3">NECK</option>
+  <option value="4">CHEST</option>
+  <option value="5">ABDOMEN PELVIS</option>
+  <option value="6">EXTREMITIES</option><br>
 </select><div id="tooltip">
-  <span id="tooltiptext">select body part</span>
+  <span id="tooltiptext">Do this first >>></span>
 </div>
 
 <input id = "userInput" type = "text"   placeholder = "Type a diagnosis here..." onkeyup="lowerit(this)" onclick = "precheck(this)">
 
 <button id = "goButton" type = "submit" onclick = "search()"><i class="fa fa-search"></i></button>
 
-   <br><br> <p id = "results" ></p>
-    <br><br><br><div id = imgres1><img src="https://lh3.googleusercontent.com/nt3MQCwpdreQTJbfeTv9ESJ2LjZuGl2UQRbxy3kqVomqnXZMoIofjdm_OvKFonIHejaMvqd5liOFdVEYOmuz=w950-h920-rw" style="width:50%"></div>
+    <br> <p id = "results" ></p>
+    <p id = "results2"></p>
 
 
-
-<br><br><br><br><br><br><br><br>
-</div> <br><br><br><br><br><br> <p id = "oralcontrast">what is oral contrast?</p><p id = "ivcontrast">what is iv contrast?</p>
+  </div> <br><br><br> <p id = "oralcontrast"><u>what is oral contrast?</u></p><p id = "ivcontrast"><u>what is iv contrast?</u></p>
 </div>
-  
-  
-
-    <script  src="js/index.js"></script>
-
-
-
+<!-- partial -->
+  <script  src="./script.js"></script>
 
 </body>
-
 </html>
