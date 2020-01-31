@@ -1,0 +1,141 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans);
+
+
+body{
+  background: #f2f2f2;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.header{
+  color: #000000;
+  font-size: 17px;
+}
+
+#userInput{
+  float: left;
+  width: 100%;
+  padding: 5px;
+  height: 20px;
+  border-radius: 5px;
+}
+.search {
+  width: 95%;
+  position: absolute;
+}
+#goButton{
+  position: absolute;  
+  width: 35px;
+  height: 35px;
+  border: 1px dotted #000000;
+  background: #bababa;
+  text-align: center;
+  color: #ffff;
+  border-radius: 7px;
+  cursor: pointer;
+  font-size: 15px;
+}
+
+
+
+#pagewrap{
+  position: absolute;
+  width: 30%;
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+#rframe{
+  border: 1px dotted #000000; 
+  background-color: #9ec8ff;
+  border-radius: 20pt;
+  visibility: hidden;
+}
+  
+#results{
+z-index: -1;
+color: #000000;
+text-align: center;
+vertical-align: middle;
+line-height: 0px;
+}
+
+#results2{
+ z-index: -1;
+ color: #849e92;
+ vertical-align:top;
+}
+
+
+
+
+#dropdown{
+  padding: 0px;
+  position: absolute;
+  left: -99pt;
+  top: 0.5pt;
+  width: 98pt;
+  height: 26pt; 
+  color: #fffff;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 12px;
+  border: 1px dotted #000000; 
+}
+
+
+
+#imgres1{
+ display: none;
+}
+
+#oralcontrast{
+  cursor: pointer;
+  font-size: 10pt;
+  color: #8ea59a;
+  position: absolute;
+  
+}
+
+#ivcontrast{
+  cursor: pointer;
+  font-size: 10pt;
+  color: #8ea59a;
+  position: absolute;
+  margin-left: 75%;
+}
+
+
+#tooltip{
+  visibility: hidden;
+  width: 120px;
+  color: #fff;
+  z-index: 1;
+  left: -33%;
+  position: absolute;
+  left: -65%;
+  top: 2%
+}
+
+
+#tooltiptext{
+  visibility: hidden;
+  width: 120px;
+  background-color: #f7c5e2;
+  color: #000000;
+  text-align: center;
+  padding: 5px 0;
+  position: absolute;
+  z-index: 1;
+  font-size: 11.5px;
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+  border-style: dotted;
+  border-width: 1px;
+  border-color: red;
+}
+
