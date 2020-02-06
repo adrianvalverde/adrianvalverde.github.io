@@ -28,7 +28,7 @@ function changemod(){
     document.getElementById("header").innerHTML = "[searching CT database]"
   }else{
   if (mri == true){
-    document.getElementById("header").innerHTML = "[<font color = red>under construsction</font color>]"
+    document.getElementById("header").innerHTML = "[<font color = red>under construction</font color>]"
     
 }  
 }
