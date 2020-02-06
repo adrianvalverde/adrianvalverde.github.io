@@ -8,16 +8,33 @@ userInput.addEventListener("keyup", function(event) {
         document.getElementById("goButton").click();
     }
 });
-
 document.getElementById("dropdown").onclick = function() {cleanslate()}
+
 function cleanslate() {
-    document.getElementById("results").innerHTML = "";
-    document.getElementById("results2").innerHTML = "";
-    document.getElementById("ivcontrast").innerHTML = "";
-   document.getElementById("oralcontrast").innerHTML = "";
-  document.getElementById("conInfo").innerHTML = "";
+  document.getElementById("results").innerHTML = "";
+  document.getElementById("results2").innerHTML = "";
   document.getElementById("rframe").style.visibility = "hidden";
 }
+
+
+function changemod(){
+  var ct = document.getElementById("ct").checked;
+  var mri = document.getElementById("mri").checked ;
+  var ct1 = document.getElementById("dropdown").value = "2";
+  var ct2 = document.getElementById("dropdown").value = "3";
+  var ct3 = document.getElementById("dropdown").value = "4";
+  var ct4 = document.getElementById("dropdown").value = "5";
+  if (ct == true){
+    document.getElementById("header").innerHTML = "[searching CT database]"
+  }else{
+  if (mri == true){
+    document.getElementById("header").innerHTML = "[<font color = red>under construsction</font color>]"
+    
+}  
+}
+}
+
+
 
 document.getElementById("ivcontrast").onclick = function() {ivcon()}
 function ivcon() {
@@ -581,7 +598,7 @@ function search(){
   }
   while (d1 == "5"){  //abdomen pelvis
   if(action > -1&&action <=100){
-  document.getElementById("results").innerHTML = "<br>CPT 74176 CT Abdomen Pelvis WO Contrast";
+  document.getElementById("results").innerHTML = "<br>CPT 74176 CT Abdomen Pelvis WO";
   document.getElementById("results2").innerHTML = "<font color = blue>No Oral or IV Contrast<br><br><font color = red>Use this only as a quick guide, the referring provider may order contrast differently.</font color>";
   document.getElementById("rframe").style.visibility = "visible";
   document.getElementById("rframe").style.backgroundColor = "#c5edcc"; break;
