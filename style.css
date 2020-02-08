@@ -68,9 +68,15 @@ body{
   border-radius: 20pt;
   visibility: hidden;
   margin-top: 14%;
+<<<<<<< HEAD
   margin-left: 15%;
   position: absolute;
   width: 73%;
+=======
+  margin-left: 19%;
+  position: absolute;
+  width: 65%;
+>>>>>>> ddff1bc1d09b9c48c746e50c0954223d1a81f100
 }
   
 #results{
