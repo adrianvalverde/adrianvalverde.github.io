@@ -1,5 +1,53 @@
 var source1 = [ ]
-var d1 = document.getElementById("dropdown").value;
+var d1 = document.getElementById("dropdown")
+var res1 = document.getElementById("results");
+var res2 = document.getElementById("results2");
+var reswin = document.getElementById("rframe");
+
+var dryhead = '<br>CPT 70450 CT Brain WO';
+var headwwo = '<br>CPT 70470 CT Brain W/WO';
+var headw = '<br>CPT 70460 CT Head W';
+var ctahead = '<br>CPT 70496 CTA Head W/WO'
+var stnwo = '<br>CPT 70490 Soft Tissue Neck WO';
+var stnw = '<br>CPT 70490 Soft Tissue Neck W';
+var stnwwo = '<br>CPT 70490 Soft Tissue Neck WWO';
+var ctaneck = '<br>CPT 70498 CTA Neck WWO';
+var chestwo = '<br>CPT 71250 Chest WO';
+var chestw = '<br>CPT 71260 Chest W';
+var ctachest = '<br>CPT 71275 CTA Chest W/WO';
+var apwo = '<br>CPT 74176 CT Abdomen Pelvis WO';
+var abdwo = '<br>CPT 72192 CT Abdomen WO';
+var pelwo = '<br>CPT 72192 CT Pelvis WO';
+var abdw = '<br>CPT 74160 CT Abdomen W';
+var abdwwo = '<br>CPT 74183 CT Abdomen WWO';
+var abdpelwwo = '<br>CPT 74178 CT Abdomen/Pelvis WWO';
+var abdpelw = '<br>CPT 74177 CT Abdomen/Pelvis';
+var ctaabdpel = '<br>CPT 74174 CTA Abdomen/Pelvis';
+
+var err = '<br>BAD LANGUAGE DETECTED';
+
+
+var dry = '<font color = blue>No IV No Oral Contrast<br><br><font color = red>Use this only as a quick guide, the referring provider may order contrast differently.</font color>';
+var ivonly = '<font color = blue>IV Contrast ONLY<br><br><font color = red>Use this only as a quick guide, the referring provider may order contrast differently.</font color>';
+noivpo = '<font color = blue>No Oral or IV Contrast<br><br><font color = red>Use this only as a quick guide, the referring provider may order contrast differently.</font color>';
+var nofind = "<i><font color = red>I'm sorry I couldnt find an answer for that, try:</i> <br><br></font color>1.Checking the spelling and search again.<br>2. Try a similiar word (ex:<strike> hurts</strike> pain )<br>3. Did you select the appropriate body part?<br><font color = blue>Have you found a bug? A mistake?<br> Send me an email and tell me about it<br>@ ctcontrast@gmx.com<br>I'll fix it right away :) </font color>"
+var poiv = '<font color = blue>IV Contrast and Oral Contrast<br><br><font color = red>Use this only as a quick guide, the referring provider may order contrast differently.';
+var errmsg = '<font color = red>...maybe try taking a break?</font color>'
+var adrenal = '<font color = blue>NOTE:<br>Adrenals are normally non-contrast<br>Use the code above if the doctor wants the scan to include IV Contrast.<br>(IV Only)<br><br><font color = red>Use this only as a quick guide, the referring provider may order contrast differently.</font color>'
+var ct_array = {
+    2 : 'HEAD',
+    3 : 'NECK',
+    4 : 'CHEST',
+    5 : 'ABDOMEN PELVIS'
+};
+
+var mr_array = {
+    6 : '&HEAD',
+    7 : 'NECK',
+    8 : 'CHEST',
+    9 : 'ABDOMEN PELVIS'
+};
+
 
 var keypress = document.getElementById("userInput");
 userInput.addEventListener("keyup", function(event) {
@@ -8,16 +56,42 @@ userInput.addEventListener("keyup", function(event) {
         document.getElementById("goButton").click();
     }
 });
-
 document.getElementById("dropdown").onclick = function() {cleanslate()}
+
+
 function cleanslate() {
-    document.getElementById("results").innerHTML = "";
-    document.getElementById("results2").innerHTML = "";
-    document.getElementById("ivcontrast").innerHTML = "";
-   document.getElementById("oralcontrast").innerHTML = "";
-  document.getElementById("conInfo").innerHTML = "";
-  document.getElementById("rframe").style.visibility = "hidden";
+  res1.innerHTML = "";
+  res2.innerHTML = "";
+  reswin.style.visibility = "hidden";
 }
+
+function changemodmr(){
+  var ct = document.getElementById("ct").checked;
+  var mri = document.getElementById("mri").checked ;
+  var select = document.getElementById("dropdown");
+  if (mri == true){
+  document.getElementById("header").innerHTML = "[<font color = red>unavailable under construction</font color>]";
+  select.options.length = 0;
+  for(index in mr_array) {
+  select.options[select.options.length] = new Option(mr_array[index], index); 
+}
+}
+}
+
+function changemodct(){
+  var ct = document.getElementById("ct").checked;
+  var mri = document.getElementById("mri").checked ;
+  var select = document.getElementById("dropdown");
+  if (ct == true){
+  document.getElementById("header").innerHTML = "[<font color = blue>searching cat-scan database</font color>]";
+  select.options.length = 0;
+  for(index in ct_array) {
+  select.options[select.options.length] = new Option(ct_array[index], index); 
+}
+}
+}
+
+
 
 document.getElementById("ivcontrast").onclick = function() {ivcon()}
 function ivcon() {
@@ -329,8 +403,8 @@ function changeinfo(){
              "§","§","§","§","§","§","§","§","§","§",
              "§","§","§","§","§","§","§","§","§","§",
              "§","§","§","§","§","§","§","§","§","seeds",     //end dry pelvis
-             "adrenal mass","adrenal",                      //dry abdomen
-             "↬","↬",
+             "↬","↬",                      //dry abdomen
+             "pheochromocytoma","↬",
              "↬","↬",
              "↬","↬",
              "↬","↬",
@@ -434,6 +508,19 @@ function changeinfo(){
              "❖","❖","❖","❖","❖","❖","❖","❖","❖","❖",
              "❖","❖","❖","❖","❖","❖","❖","❖","❖","❖",
              "❖","❖","❖","❖","❖","❖","❖","❖","❖","❖",
+             "adrenal gland","adrenal",
+             "adrenal mass","adrenals",
+             "mass on adrenal","adrenal node",
+             "☒","☒","☒","☒",
+             "☒","☒","☒","☒","☒","☒","☒","☒","☒","☒",
+             "☒","☒","☒","☒","☒","☒","☒","☒","☒","☒",
+             "☒","☒","☒","☒","☒","☒","☒","☒","☒","☒",
+             "☒","☒","☒","☒","☒","☒","☒","☒","☒","☒",
+             "☒","☒","☒","☒","☒","☒","☒","☒","☒","☒",
+             "☒","☒","☒","☒","☒","☒","☒","☒","☒","☒",
+             "☒","☒","☒","☒","☒","☒","☒","☒","☒","☒",
+             "☒","☒","☒","☒","☒","☒","☒","☒","☒","☒",
+             "☒","☒","☒","☒","☒","☒","☒","☒","☒","☒",
              "poop","work sucks",                           //error code
              "poo","i hate you",
              "shit","fuck",
@@ -459,177 +546,175 @@ function changeinfo(){
 }
 
 function search(){
-  var d1 = document.getElementById("dropdown").value;
   var input = document.getElementById("userInput").value;
   var action = source1.indexOf(input.trim());
-  while (d1 == "2"){ //big brain time
+  while (d1.value == "2"){ //big brain time
   if (action > -1&&action <= 100){
-  document.getElementById("results").innerHTML = "<br>CPT 70450 CT Brain WO";
-  document.getElementById("results2").innerHTML = "<font color = blue>No IV No Oral Contrast<br><br><font color = red>Use this only as a quick guide, the referring provider may order contrast differently.</font color>";
-  document.getElementById("rframe").style.visibility = "visible";
-  document.getElementById("rframe").style.backgroundColor = "#c5edcc"; break;
+  res1.innerHTML = dryhead;
+  res2.innerHTML = dry;
+  reswin.style.visibility = "visible";
+  reswin.style.backgroundColor = "#c5edcc"; break;
   }else{   //WO Brain
   if (action > 100&&action <= 200){
-  document.getElementById("results").innerHTML = "<br>CPT 70470 CT Brain W/WO";
-  document.getElementById("results2").innerHTML = "<font color = blue>IV Contrast ONLY<br><br><font color = red>Use this only as a quick guide, the referring provider may order contrast differently.</font color>";
-  document.getElementById("rframe").style.visibility = "visible";
-  document.getElementById("rframe").style.backgroundColor = "#c5edcc"; break;
+  res1.innerHTML = headwwo;
+  res2.innerHTML = ivonly;
+  reswin.style.visibility = "visible";
+  reswin.style.backgroundColor = "#c5edcc"; break;
   }else{  //WWO Brain
   if (action > 200&&action <= 300){
-  document.getElementById("results").innerHTML = "<br>CPT 70460 CT Head W";
-  document.getElementById("results2").innerHTML = "<font color = blue>IV Contrast ONLY<br><br><font color = red>Use this only as a quick guide, the referring provider may order contrast differently.</font color>";
-  document.getElementById("rframe").style.visibility = "visible";
-  document.getElementById("rframe").style.backgroundColor = "#c5edcc"; break; 
+  res1.innerHTML = headw;
+  res2.innerHTML = ivonly;
+  reswin.style.visibility = "visible";
+  reswin.style.backgroundColor = "#c5edcc"; break; 
       }else{  //W Brain
   if (action > 300&&action <=400){
-  document.getElementById("results").innerHTML = "<br>CPT 70496 CTA Head W/WO";
-  document.getElementById("results2").innerHTML = "<font color = blue>IV Contrast ONLY<br><br><font color = red>Use this only as a quick guide, the referring provider may order contrast differently.</font color>";
-  document.getElementById("rframe").style.visibility = "visible";
-  document.getElementById("rframe").style.backgroundColor = "#c5edcc"; break;
+  res1.innerHTML = ctahead;
+  res2.innerHTML = ivonly;
+  reswin.style.visibility = "visible";
+  reswin.style.backgroundColor = "#c5edcc"; break;
      }else{   //CTA Brain
   if (action > 400&&action <=500){
-  document.getElementById("results").innerHTML = "<br>BAD LANGUAGE DETECTED";
-  document.getElementById("results2").innerHTML = "<font color = red>...maybe try taking a break?</font color>";
-  document.getElementById("rframe").style.visibility = "visible";
-  document.getElementById("rframe").style.backgroundColor = "#c5edcc"; break;
+  res1.innerHTML = err;
+  res2.innerHTML = errmsg;
+  reswin.style.visibility = "visible";
+  reswin.style.backgroundColor = "#c5edcc"; break;
       }else{   //Error
-  document.getElementById("rframe").style.visibility = "hidden";
-  document.getElementById("results2").innerHTML = "<i><font color = red>I'm sorry I couldnt find an answer for that, try:</i> <br><br></font color>1.Checking the spelling and search again.<br>2. Try a similiar word (ex:<strike> hurts</strike> pain )<br>3. Did you select the appropriate body part?<br><font color = blue>Have you found a bug? A mistake?<br> Send me an email and tell me about it<br>@ ctcontrast@gmx.com<br>I'll fix it right away :) </font color>"; break;  //NA 
+  reswin.style.visibility = "hidden";
+  res2.innerHTML = nofind; break;  //NA 
       }
      }
     }
    }        
   }
  } 
-  while (d1 == "3"){  //neck
+  while (d1.value == "3"){  //neck
   if (action > -1&&action <= 100){
-  document.getElementById("results").innerHTML = "<br>CPT 70490 Soft Tissue Neck WO Contrast";
-  document.getElementById("results2").innerHTML = "<font color = blue>No IV No Oral Contrast<br><br><font color = red>Use this only as a quick guide, the referring provider may order contrast differently.</font color>";
-  document.getElementById("rframe").style.visibility = "visible";
-  document.getElementById("rframe").style.backgroundColor = "#c5edcc"; break;
-    }else{
-  if (action > -1&&action <= 100){
-  document.getElementById("results").innerHTML = "<br>CPT 70490 Soft Tissue Neck WO Contrast";
-  document.getElementById("results2").innerHTML = "<font color = blue>No IV No Oral Contrast<br><br><font color = red>Use this only as a quick guide, the referring provider may order contrast differently.</font color>";
-  document.getElementById("rframe").style.visibility = "visible";
-  document.getElementById("rframe").style.backgroundColor = "#c5edcc"; break;
+  res1.innerHTML = stnwo;
+  res2.innerHTML = dry;
+  reswin.style.visibility = "visible";
+  reswin.style.backgroundColor = "#c5edcc"; break;
     }else{
   if (action > 100&&action <= 200){
-  document.getElementById("results").innerHTML = "<br>CPT 70492 Soft Tissue Neck W/WO";
-  document.getElementById("results2").innerHTML = "<font color = blue>IV Contrast ONLY<br><br><font color = red>Use this only as a quick guide, the referring provider may order contrast differently.</font color>";
-  document.getElementById("rframe").style.visibility = "visible";
-  document.getElementById("rframe").style.backgroundColor = "#c5edcc"; break;
+  res1.innerHTML = stnwwo;
+  res2.innerHTML = ivonly;
+  reswin.style.visibility = "visible";
+  reswin.style.backgroundColor = "#c5edcc"; break;
     }else{
   if (action > 200&&action <= 300){
-  document.getElementById("results").innerHTML = "<br>CPT 70491 Soft Tissue Neck W";
-  document.getElementById("results2").innerHTML = "<font color = blue>IV Contrast ONLY<br><br><font color = red>Use this only as a quick guide, the referring provider may order contrast differently.</font color>";
-  document.getElementById("rframe").style.visibility = "visible";
-  document.getElementById("rframe").style.backgroundColor = "#c5edcc"; break;
+  res1.innerHTML = stnw;
+  res2.innerHTML = ivonly;
+  reswin.style.visibility = "visible";
+  reswin.style.backgroundColor = "#c5edcc"; break;
     }else{
   if (action > 300&&action <= 400){
-  document.getElementById("results").innerHTML = "<br>CPT 70498 CTA Neck W/WO";
-  document.getElementById("results2").innerHTML = "<font color = blue>IV Contrast ONLY<br><br><font color = red>Use this only as a quick guide, the referring provider may order contrast differently.</font color>";
-  document.getElementById("rframe").style.visibility = "visible";
-  document.getElementById("rframe").style.backgroundColor = "#c5edcc"; break;
+  res1.innerHTML = ctaneck;
+  res2.innerHTML = ivonly;
+  reswin.style.visibility = "visible";
+  reswin.style.backgroundColor = "#c5edcc"; break;
     }else{
   if (action > 400&&action <= 500){
-  document.getElementById("results").innerHTML = "<br>BAD LANGUAGE DETECTED";
-  document.getElementById("results2").innerHTML = "<font color = red>...maybe try taking a break?</font color>";
-  document.getElementById("rframe").style.visibility = "visible";
-  document.getElementById("rframe").style.backgroundColor = "#c5edcc"; break;
+  res1.innerHTML = err;
+  res2.innerHTML = errmsg;
+  reswin.style.visibility = "visible";
+  reswin.style.backgroundColor = "#c5edcc"; break;
     }else{
-  document.getElementById("rframe").style.visibility = "hidden";
-  document.getElementById("results2").innerHTML = "<i><font color = red>I'm sorry I couldnt find an answer for that, try:</i> <br><br></font color>1.Checking the spelling and search again.<br>2. Try a similiar word (ex:<strike> hurts</strike> pain )<br><font color = blue>Have you found a bug? A mistake?<br> Send me an email and tell me about it<br>@ ctcontrast@gmx.com<br>I'll fix it right away :) </font color>"; break;  //NA 
+  reswin.style.visibility = "hidden";
+  res2.innerHTML = nofind; break;  //NA 
        }   
       } 
      }    
     }
    }
   }
- } 
-  while (d1 =="4"){  //chest
+  while (d1.value =="4"){  //chest
   if(action > -1&&action <= 100){
-  document.getElementById("results").innerHTML = "<br>CPT 71250 Chest WO";
-  document.getElementById("results2").innerHTML = "<font color = blue>No IV or Oral Contrast<br><br><font color = red>Use this only as a quick guide, the referring provider may order contrast differently.</font color>";
-  document.getElementById("rframe").style.visibility = "visible";
-  document.getElementById("rframe").style.backgroundColor = "#c5edcc"; break;
+  res1.innerHTML = chestwo;
+  res2.innerHTML = dry;
+  reswin.style.visibility = "visible";
+  reswin.style.backgroundColor = "#c5edcc"; break;
     }else{
   if(action > 100&&action <= 200){
-  document.getElementById("results").innerHTML = "<br>CPT 71260 Chest W";
-  document.getElementById("results2").innerHTML = "<font color = blue>IV Contrast ONLY<br><br><font color = red>Use this only as a quick guide, the referring provider may order contrast differently.</font color>";
-  document.getElementById("rframe").style.visibility = "visible";
-  document.getElementById("rframe").style.backgroundColor = "#c5edcc"; break;
+  res1.innerHTML = chestw;
+  res2.innerHTML = ivonly;
+  reswin.style.visibility = "visible";
+  reswin.style.backgroundColor = "#c5edcc"; break;
     }else{
   if(action > 200&&action <= 300){
-  document.getElementById("results").innerHTML = "<br>CPT 71275 CTA Chest W/WO";
-  document.getElementById("results2").innerHTML = "<font color = blue>IV Contrast ONLY<br><br><font color = red>Use this only as a quick guide, the referring provider may order contrast differently.</font color>";
-  document.getElementById("rframe").style.visibility = "visible";
-  document.getElementById("rframe").style.backgroundColor = "#c5edcc"; break;
+  res1.innerHTML = ctachest;
+  res2.innerHTML = ivonly;
+  reswin.style.visibility = "visible";
+  reswin.style.backgroundColor = "#c5edcc"; break;
     }else{
   if (action > 300&&action <= 400){
-  document.getElementById("results").innerHTML = "<br>BAD LANGUAGE DETECTED";
-  document.getElementById("results2").innerHTML = "<font color = red>...maybe try taking a break?</font color>";
-  document.getElementById("rframe").style.visibility = "visible";
-  document.getElementById("rframe").style.backgroundColor = "#c5edcc"; break;
+  res1.innerHTML = err;
+  res2.innerHTML = errmsg;
+  reswin.style.visibility = "visible";
+  reswin.style.backgroundColor = "#c5edcc"; break;
     }else{
-  document.getElementById("rframe").style.visibility = "hidden";
-  document.getElementById("results2").innerHTML = "<i><font color = red>I'm sorry I couldnt find an answer for that, try:</i> <br><br></font color>1.Checking the spelling and search again.<br>2. Try a similiar word (ex:<strike> hurts</strike> pain )<br><font color = blue>Have you found a bug? A mistake?<br> Send me an email and tell me about it<br>@ ctcontrast@gmx.com<br>I'll fix it right away :) </font color>"; break;  //NA 
+  reswin.style.visibility = "hidden";
+  res2.innerHTML = nofind; break;  //NA 
       }
      }
     }
    }
   }
-  while (d1 == "5"){  //abdomen pelvis
+  while (d1.value == "5"){  //abdomen pelvis
   if(action > -1&&action <=100){
-  document.getElementById("results").innerHTML = "<br>CPT 74176 CT Abdomen Pelvis WO Contrast";
-  document.getElementById("results2").innerHTML = "<font color = blue>No Oral or IV Contrast<br><br><font color = red>Use this only as a quick guide, the referring provider may order contrast differently.</font color>";
-  document.getElementById("rframe").style.visibility = "visible";
-  document.getElementById("rframe").style.backgroundColor = "#c5edcc"; break;
+  res1.innerHTML = apwo;
+  res2.innerHTML = noivpo;
+  reswin.style.visibility = "visible";
+  reswin.style.backgroundColor = "#c5edcc"; break;
    }else{
   if(action > 100&&action <=200){
-  document.getElementById("results").innerHTML = "<br>CPT 72192 CT Pelvis WO Contrast";
-  document.getElementById("results2").innerHTML = "<font color = blue>No Oral or IV Contrast<br><br><font color = red>Use this only as a quick guide, the referring provider may order contrast differently.</font color>";
-  document.getElementById("rframe").style.visibility = "visible";
-  document.getElementById("rframe").style.backgroundColor = "#c5edcc"; break;
+  res1.innerHTML = pelwo;
+  res2.innerHTML = noivpo;
+  reswin.style.visibility = "visible";
+  reswin.style.backgroundColor = "#c5edcc"; break;
   }else{
     if(action > 200&&action <=300){
-  document.getElementById("results").innerHTML = "<br>CPT 72192 CT Abdomen WO Contrast";
-  document.getElementById("results2").innerHTML = "<font color = blue>No Oral or IV Contrast<br><br><font color = red>Note: This exam does not include a pelvis, <br>if a pelvis is also requested please use<br>CPT 74146</font color><br><br><font color = red>Use this only as a quick guide, the referring provider may order contrast differently.";
-  document.getElementById("rframe").style.visibility = "visible";
-  document.getElementById("rframe").style.backgroundColor = "#c5edcc"; break;
-    }else{
+  res1.innerHTML = abdwo;
+  res2.innerHTML = noivpo;
+  reswin.style.visibility = "visible";
+  reswin.style.backgroundColor = "#c5edcc"; break;
+   }else{
           if(action > 300&&action <=400){
-  document.getElementById("results").innerHTML = "<br>CPT 74160 CT Abdomen W Contrast";
-  document.getElementById("results2").innerHTML ="<font color = blue>IV Contrast ONLY<br><br><font color = red>Note: This exam does not include a pelvis, <br>if a pelvis is also requested please use<br>CPT 74147</font color><br><br><font color = red>Use this only as a quick guide, the referring provider may order contrast differently.";
-  document.getElementById("rframe").style.visibility = "visible";
-  document.getElementById("rframe").style.backgroundColor = "#c5edcc"; break;
+  res1.innerHTML = abdw
+  res2.innerHTML = ivonly;
+  reswin.style.visibility = "visible";
+  reswin.style.backgroundColor = "#c5edcc"; break;
      }else{
           if(action > 400&&action <=500){
-  document.getElementById("results").innerHTML = "<br>CPT 74178 CT Abdomen/Pelvis W/WO";
-  document.getElementById("results2").innerHTML ="<font color = blue>IV Contrast ONLY<br><br><font color = red>Use this only as a quick guide, the referring provider may order contrast differently.";
-  document.getElementById("rframe").style.visibility = "visible";
-  document.getElementById("rframe").style.backgroundColor = "#c5edcc"; break;
+  res1.innerHTML = abdpelwwo;
+  res2.innerHTML = ivonly;
+  reswin.style.visibility = "visible";
+  reswin.style.backgroundColor = "#c5edcc"; break;
     }else{
           if(action > 500&&action <=600){
-  document.getElementById("results").innerHTML = "<br>CPT 74177 CT Abdomen/Pelvis";
-  document.getElementById("results2").innerHTML ="<font color = blue>IV Contrast and Oral Contrast<br><br><font color = red>Use this only as a quick guide, the referring provider may order contrast differently.";
-  document.getElementById("rframe").style.visibility = "visible";
-  document.getElementById("rframe").style.backgroundColor = "#c5edcc"; break;
+  res1.innerHTML = abdpelw;
+  res2.innerHTML = poiv;
+  reswin.style.visibility = "visible";
+  reswin.style.backgroundColor = "#c5edcc"; break;
    }else{
-          if(action > 600&&action <=700){
-  document.getElementById("results").innerHTML = "<br>CPT 74174 CTA Abdomen/Pelvis";
-  document.getElementById("results2").innerHTML ="<font color = blue>IV Contrast ONLY<br><br><font color = red>Use this only as a quick guide, the referring provider may order contrast differently.";
-  document.getElementById("rframe").style.visibility = "visible";
-  document.getElementById("rframe").style.backgroundColor = "#c5edcc"; break;
+  if(action > 600&&action <=700){
+  res1.innerHTML = ctaabdpel;
+  res2.innerHTML = ivonly;
+  reswin.style.visibility = "visible";
+  reswin.style.backgroundColor = "#c5edcc"; break;
    }else{
   if (action > 700&&action <= 800){
-  document.getElementById("results").innerHTML = "<br>BAD LANGUAGE DETECTED";
-  document.getElementById("results2").innerHTML = "<font color = red>...maybe try taking a break?</font color>";
-  document.getElementById("rframe").style.visibility = "visible";
-  document.getElementById("rframe").style.backgroundColor = "#c5edcc"; break;
+  res1.innerHTML = abdwwo;
+  res2.innerHTML = adrenal;
+  reswin.style.visibility = "visible";
+  reswin.style.backgroundColor = "#c5edcc"; break;
     }else{
-  document.getElementById("rframe").style.visibility = "hidden";
-  document.getElementById("results2").innerHTML = "<i><font color = red>I'm sorry I couldnt find an answer for that, try:</i> <br><br></font color>1.Checking the spelling and search again.<br>2. Try a similiar word (ex:<strike> hurts</strike> pain )<br><font color = blue>Have you found a bug? A mistake?<br> Send me an email and tell me about it<br>@ ctcontrast@gmx.com<br>I'll fix it right away :) </font color>"; break;  //NA 
+  if (action > 800&&action <= 900){
+  res1.innerHTML = err;
+  res2.innerHTML = errmsg;
+  reswin.style.visibility = "visible";
+  reswin.style.backgroundColor = "#c5edcc"; break;
+    }else{
+  reswin.style.visibility = "hidden";
+  res2.innerHTML = nofind; break;  //NA 
          }
         }
        }
@@ -640,7 +725,7 @@ function search(){
   }
  }
 }
-
+}
   
 //Ä = Non-Contrast              (Total 100)
 //♠ = With and Without Contrast (Total 100)
