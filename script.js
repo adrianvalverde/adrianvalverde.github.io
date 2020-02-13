@@ -1,10 +1,6 @@
-<<<<<<< HEAD
 //please dont steal my shit.
 
 
-=======
-var source1 = [ ]
->>>>>>> 8a4ff57e695bbd8e1e2a5ca38d976b1b33330ea6
 var d1 = document.getElementById("dropdown")
 var res1 = document.getElementById("results");
 var res2 = document.getElementById("results2");
@@ -13,11 +9,7 @@ var reswin = document.getElementById("rframe");
 var dryhead = '<br>CPT 70450 CT Brain WO';
 var headwwo = '<br>CPT 70470 CT Brain W/WO';
 var headw = '<br>CPT 70460 CT Head W';
-<<<<<<< HEAD
 var ctahead = '<br>CPT 70496 CTA Head W/WO';
-=======
-var ctahead = '<br>CPT 70496 CTA Head W/WO'
->>>>>>> 8a4ff57e695bbd8e1e2a5ca38d976b1b33330ea6
 var stnwo = '<br>CPT 70490 Soft Tissue Neck WO';
 var stnw = '<br>CPT 70490 Soft Tissue Neck W';
 var stnwwo = '<br>CPT 70490 Soft Tissue Neck WWO';
@@ -34,7 +26,6 @@ var abdpelwwo = '<br>CPT 74178 CT Abdomen/Pelvis WWO';
 var abdpelw = '<br>CPT 74177 CT Abdomen/Pelvis';
 var ctaabdpel = '<br>CPT 74174 CTA Abdomen/Pelvis';
 
-<<<<<<< HEAD
 var mrheadwo = '<br>CPT 70551 MRI Head WO';
 var mrheadw = '<br>CPT 70552 MRI Head W';
 var mrheadwwo = '<br>CPT 70553 MRI Head WWO';
@@ -43,8 +34,6 @@ var mriacwwo = '<br>CPT 70553 MR BRAIN & IAC WWO';
 var mrpitwwo = '<br>CPT 70553 MR Brain & Pituitary WWO';
 var mrorbits = '<br>CPT 70543 MRI Orbits WWO';
 
-=======
->>>>>>> 8a4ff57e695bbd8e1e2a5ca38d976b1b33330ea6
 var err = '<br>BAD LANGUAGE DETECTED';
 
 
@@ -55,13 +44,10 @@ var nofind = "<i><font color = red>I'm sorry I couldnt find an answer for that, 
 var poiv = '<font color = blue>IV Contrast and Oral Contrast<br><br><font color = red>Use this only as a quick guide, the referring provider may order contrast differently.';
 var errmsg = '<font color = red>...maybe try taking a break?</font color>'
 var adrenal = '<font color = blue>NOTE:<br>Adrenals are normally non-contrast<br>Use the code above if the doctor wants the scan to include IV Contrast.<br>(IV Only)<br><br><font color = red>Use this only as a quick guide, the referring provider may order contrast differently.</font color>'
-<<<<<<< HEAD
 
 var nogad = '<font color = blue>No Contrast<br><br><font color = red>Use this only as a quick guide, the referring provider may order contrast differently.</font color>';
 var mrmsg = "<i><font color = red>the MRI database is still being constructed, check back later for more updates.</font color>"
 
-=======
->>>>>>> 8a4ff57e695bbd8e1e2a5ca38d976b1b33330ea6
 var ct_array = {
     2 : 'HEAD',
     3 : 'NECK',
@@ -69,19 +55,11 @@ var ct_array = {
     5 : 'ABDOMEN PELVIS'
 };
 
-<<<<<<< HEAD
 var mr_array = { 
     6 : 'MR HEAD',
     7 : 'unavailable',
     8 : 'unavailable',
     9 : 'unavailable'
-=======
-var mr_array = {
-    6 : '&HEAD',
-    7 : 'NECK',
-    8 : 'CHEST',
-    9 : 'ABDOMEN PELVIS'
->>>>>>> 8a4ff57e695bbd8e1e2a5ca38d976b1b33330ea6
 };
 
 
@@ -102,7 +80,6 @@ function cleanslate() {
 }
 
 function changemodmr(){
-<<<<<<< HEAD
   var ct = document.getElementById("ct").checked;
   var mri = document.getElementById("mri").checked;
   var select = document.getElementById("dropdown");
@@ -110,30 +87,6 @@ function changemodmr(){
   select.options.length = 1;
   for(index in mr_array){
   select.options[select.options.length] = new Option(mr_array[index], index); 
-=======
-  var ct = document.getElementById("ct").checked;
-  var mri = document.getElementById("mri").checked ;
-  var select = document.getElementById("dropdown");
-  if (mri == true){
-  document.getElementById("header").innerHTML = "[<font color = red>unavailable under construction</font color>]";
-  select.options.length = 0;
-  for(index in mr_array) {
-  select.options[select.options.length] = new Option(mr_array[index], index); 
-}
-}
-}
-
-function changemodct(){
-  var ct = document.getElementById("ct").checked;
-  var mri = document.getElementById("mri").checked ;
-  var select = document.getElementById("dropdown");
-  if (ct == true){
-  document.getElementById("header").innerHTML = "[<font color = blue>searching cat-scan database</font color>]";
-  select.options.length = 0;
-  for(index in ct_array) {
-  select.options[select.options.length] = new Option(ct_array[index], index); 
-}
->>>>>>> 8a4ff57e695bbd8e1e2a5ca38d976b1b33330ea6
 }
   document.getElementById("header").innerHTML = "[<font color = red>Limited availability; under construction</font color>]";
 }
@@ -775,11 +728,7 @@ function search(){
   reswin.style.visibility = "visible";
   reswin.style.backgroundColor = "#c5edcc"; break;
     }else{
-<<<<<<< HEAD
   if(action > 300&&action <= 400){
-=======
-  if (action > 300&&action <= 400){
->>>>>>> 8a4ff57e695bbd8e1e2a5ca38d976b1b33330ea6
   res1.innerHTML = err;
   res2.innerHTML = errmsg;
   reswin.style.visibility = "visible";
@@ -805,41 +754,25 @@ function search(){
   reswin.style.visibility = "visible";
   reswin.style.backgroundColor = "#c5edcc"; break;
   }else{
-<<<<<<< HEAD
   if(action > 200&&action <=300){
-=======
-    if(action > 200&&action <=300){
->>>>>>> 8a4ff57e695bbd8e1e2a5ca38d976b1b33330ea6
   res1.innerHTML = abdwo;
   res2.innerHTML = noivpo;
   reswin.style.visibility = "visible";
   reswin.style.backgroundColor = "#c5edcc"; break;
    }else{
-<<<<<<< HEAD
   if(action > 300&&action <=400){
-=======
-          if(action > 300&&action <=400){
->>>>>>> 8a4ff57e695bbd8e1e2a5ca38d976b1b33330ea6
   res1.innerHTML = abdw
   res2.innerHTML = ivonly;
   reswin.style.visibility = "visible";
   reswin.style.backgroundColor = "#c5edcc"; break;
      }else{
-<<<<<<< HEAD
   if(action > 400&&action <=500){
-=======
-          if(action > 400&&action <=500){
->>>>>>> 8a4ff57e695bbd8e1e2a5ca38d976b1b33330ea6
   res1.innerHTML = abdpelwwo;
   res2.innerHTML = ivonly;
   reswin.style.visibility = "visible";
   reswin.style.backgroundColor = "#c5edcc"; break;
     }else{
-<<<<<<< HEAD
   if(action > 500&&action <=600){
-=======
-          if(action > 500&&action <=600){
->>>>>>> 8a4ff57e695bbd8e1e2a5ca38d976b1b33330ea6
   res1.innerHTML = abdpelw;
   res2.innerHTML = poiv;
   reswin.style.visibility = "visible";
@@ -851,21 +784,13 @@ function search(){
   reswin.style.visibility = "visible";
   reswin.style.backgroundColor = "#c5edcc"; break;
    }else{
-<<<<<<< HEAD
   if(action > 700&&action <=800){
-=======
-  if (action > 700&&action <= 800){
->>>>>>> 8a4ff57e695bbd8e1e2a5ca38d976b1b33330ea6
   res1.innerHTML = abdwwo;
   res2.innerHTML = adrenal;
   reswin.style.visibility = "visible";
   reswin.style.backgroundColor = "#c5edcc"; break;
     }else{
-<<<<<<< HEAD
   if(action > 800&&action <=900){
-=======
-  if (action > 800&&action <= 900){
->>>>>>> 8a4ff57e695bbd8e1e2a5ca38d976b1b33330ea6
   res1.innerHTML = err;
   res2.innerHTML = errmsg;
   reswin.style.visibility = "visible";
@@ -933,13 +858,8 @@ function search(){
 }
 }
 }
-<<<<<<< HEAD
 
 
-=======
-}
-  
->>>>>>> 8a4ff57e695bbd8e1e2a5ca38d976b1b33330ea6
 //Ä = Non-Contrast              (Total 100)
 //♠ = With and Without Contrast (Total 100)
 //δ = IV Contrast only          (Total 100)
@@ -954,3 +874,4 @@ function search(){
 //§ = CT Pelvis - MSK/Dry       (100 Total)
 //↕ = CT Urogram                (100 Total)
 //¶ = Error                     (Total 100)
+
