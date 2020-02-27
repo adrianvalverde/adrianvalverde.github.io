@@ -1,22 +1,27 @@
 //please dont steal my shit.
 
-
+//document globals
 var d1 = document.getElementById("dropdown")
 var res1 = document.getElementById("results");
 var res2 = document.getElementById("results2");
 var reswin = document.getElementById("rframe");
+var userin = document.getElementById("userInput");
 
+//CT Exams
 var dryhead = '<br>CPT 70450 CT Brain WO';
 var headwwo = '<br>CPT 70470 CT Brain W/WO';
 var headw = '<br>CPT 70460 CT Head W';
 var ctahead = '<br>CPT 70496 CTA Head W/WO';
+
 var stnwo = '<br>CPT 70490 Soft Tissue Neck WO';
 var stnw = '<br>CPT 70490 Soft Tissue Neck W';
 var stnwwo = '<br>CPT 70490 Soft Tissue Neck WWO';
 var ctaneck = '<br>CPT 70498 CTA Neck WWO';
+
 var chestwo = '<br>CPT 71250 Chest WO';
 var chestw = '<br>CPT 71260 Chest W';
 var ctachest = '<br>CPT 71275 CTA Chest W/WO';
+
 var apwo = '<br>CPT 74176 CT Abdomen Pelvis WO';
 var abdwo = '<br>CPT 72192 CT Abdomen WO';
 var pelwo = '<br>CPT 72192 CT Pelvis WO';
@@ -26,6 +31,8 @@ var abdpelwwo = '<br>CPT 74178 CT Abdomen/Pelvis WWO';
 var abdpelw = '<br>CPT 74177 CT Abdomen/Pelvis';
 var ctaabdpel = '<br>CPT 74174 CTA Abdomen/Pelvis';
 
+
+//MRI Exams
 var mrheadwo = '<br>CPT 70551 MRI Head WO';
 var mrheadw = '<br>CPT 70552 MRI Head W';
 var mrheadwwo = '<br>CPT 70553 MRI Head WWO';
@@ -34,6 +41,12 @@ var mriacwwo = '<br>CPT 70553 MR BRAIN & IAC WWO';
 var mrpitwwo = '<br>CPT 70553 MR Brain & Pituitary WWO';
 var mrorbits = '<br>CPT 70543 MRI Orbits WWO';
 
+var mrneck = '<br>CPT 70543 MRI Neck WWO';
+var mraneck = '<br>CPT 70549 MRA Neck WWO';
+
+
+
+//Error codes
 var err = '<br>BAD LANGUAGE DETECTED';
 
 
@@ -56,8 +69,8 @@ var ct_array = {
 };
 
 var mr_array = { 
-    6 : 'MR HEAD',
-    7 : 'unavailable',
+    6 : 'HEAD',
+    7 : 'NECK',
     8 : 'unavailable',
     9 : 'unavailable'
 };
@@ -77,6 +90,7 @@ function cleanslate() {
   res1.innerHTML = "";
   res2.innerHTML = "";
   reswin.style.visibility = "hidden";
+  userin.value = '';
 }
 
 function changemodmr(){
@@ -84,9 +98,10 @@ function changemodmr(){
   var mri = document.getElementById("mri").checked;
   var select = document.getElementById("dropdown");
   if (mri == true){
-  select.options.length = 1;
+  select.options.length = 0;
   for(index in mr_array){
   select.options[select.options.length] = new Option(mr_array[index], index); 
+  select.selectedIndex = "-1";  
 }
   document.getElementById("header").innerHTML = "[<font color = red>Limited availability; under construction</font color>]";
 }
@@ -98,9 +113,10 @@ function changemodct(){
   var select = document.getElementById("dropdown");
   if (ct == true){
   document.getElementById("header").innerHTML = "[<font color = blue>searching cat-scan database</font color>]";
-  select.options.length = 1;
+  select.options.length = 0;
   for(index in ct_array){
   select.options[select.options.length] = new Option(ct_array[index], index); 
+  select.selectedIndex = "-1";  
 }
 }
 }
@@ -264,8 +280,8 @@ function changeinfo(){
                    "carotid artery", "carotid arteries",
                    "stenosis", "carotid artery stenosis",
                    "carotid endarterectomy", "endarterectomy",
-                   "aneurysm","℗",                            //10 CTA NECK
-                   "℗","℗","℗","℗","℗","℗","℗","℗","℗","℗",
+                   "aneurysm","pulsatile tinnitus",                            //10 CTA NECK
+                   "pulsatile","℗","℗","℗","℗","℗","℗","℗","℗","℗",
                    "℗","℗","℗","℗","℗","℗","℗","℗","℗","℗", 
                    "℗","℗","℗","℗","℗","℗","℗","℗","℗","℗", 
                    "℗","℗","℗","℗","℗","℗","℗","℗","℗","℗", 
@@ -370,7 +386,7 @@ function changeinfo(){
              "¶","¶","¶","¶","¶","¶","¶","¶","¶","¶",       //80
              "¶","¶","¶","¶","¶","¶","¶","¶","¶","¶",       //90
              "¶","¶","¶","¶","¶","¶","¶","¶","¶","test69"]       //100 end chest
-   }else{
+  }else{
   if (d1 == "5"){
   source1 = ["Ä","kidney stones", "kidney stone",
              "renal stones", "renal stone",
@@ -619,15 +635,113 @@ function changeinfo(){
              "©","©","©","©","©","©","©","©","©","©",
              "©","©","©","©","©","©","©","©","©","©",
              "©","©","©","©","©","©","©","©","©","©",
-             
-            ]        
-}
-}
-}
-}
-}
-}
+             "blurred vision","vision loss",            //50 orbit
+             "vision","eyes",
+             "double vision","binocular diplopia",
+             "diplopia","binocular",
+             "visual","visual disturbances",
+             "macular degeneration","macular",
+             "ocular","ocular myasthenia gravis",
+             "myasthenia gravis","optic",
+             "optic chiasm","chiasm",
+             "exophthalmos","second cranial nerve",
+             "optic nerve","oculomotor",
+             "oculomotor nerve","cross-eyed",
+             "cross eyed","eyes crossed",
+             "eye mass","mass on orbit",
+             "orbital mass","ocular cancer",
+             "ocular pain","orbit pain",
+             "orbital pain","↕",
+             "↕","↕","↕","↕","↕","↕",
+             "↕","↕","↕","↕","↕","↕","↕","↕","↕","↕",
+             "poop","work sucks",                           //error code
+             "poo","i hate you",
+             "shit","fuck",
+             "ass","poopy",
+             "advanced radiology","adrian",                 //10
+             "adrian sucks","this is stupid",        
+             "blagh","you suck",
+             "your mom","ligma",
+             "this sucks","this sux",
+             "work sucks","work sux",                       //20
+             "¶","¶","¶","¶","¶","¶","¶","¶","¶","¶",       //30
+             "¶","¶","¶","¶","¶","¶","¶","¶","¶","¶",       //40
+             "¶","¶","¶","¶","¶","¶","¶","¶","¶","¶",       //50
+             "¶","¶","¶","¶","¶","¶","¶","¶","¶","¶",       //60
+             "¶","¶","¶","¶","¶","¶","¶","¶","¶","¶",       //70
+             "¶","¶","¶","¶","¶","¶","¶","¶","¶","¶",       //80
+             "¶","¶","¶","¶","¶","¶","¶","¶","¶","¶",       //90
+             "¶","¶","¶","¶","¶","¶","¶","¶","¶","test69"]       //100 End err                  
+  }else{
+  if (d1 == "7"){
+  source1 = ["Ä","lymph nodes", "enlarged lymph node",    // Contrast MRI STN
+                   "lymph node", "lymphadenopathy",
+                   "enlarged node", "palpable mass",
+                   "mass", "tumor", 
+                   "cancer", "vocal chords",                //10
+                   "paralyzed vocal chords", "vocal chord",
+                   "paralysis", "thyroid", 
+                   "thyroid mass", "pain",
+                   "sialadenitis","mets",
+                   "bump", "lump",                          //20
+ 	                 "swelling","swell",
+                   "swollen","generalized swelling",
+                   "node","lymph",
+                   "parotid gland ","parotid",
+                   "parotidectomy","δ",                                //30
+                   "δ","δ","δ","δ","δ","δ","δ","δ","δ","δ",
+                   "δ","δ","δ","δ","δ","δ","δ","δ","δ","δ",
+                   "δ","δ","δ","δ","δ","δ","δ","δ","δ","δ",
+                   "δ","δ","δ","δ","δ","δ","δ","δ","δ","δ",
+                   "δ","δ","δ","δ","δ","δ","δ","δ","δ","δ",
+                   "δ","δ","δ","δ","δ","δ","δ","δ","δ","δ",
+	                 "δ","δ","δ","δ","δ","δ","δ","δ","δ","δ",
+                   "aneurysm", "carotid",
+                   "carotid artery", "carotid arteries",
+                   "stenosis", "carotid artery stenosis",
+                   "carotid endarterectomy", "endarterectomy",
+                   "aneurysm","pulsatile tinnitus",                            //10 MRA NECK
+                   "pulsatile","artery",
+                   "vertebral artery","vert arteries",
+                   "vert artery","vertebral arteries",
+                   "℗","℗",
+                   "℗","℗",
+                   "℗","℗","℗","℗","℗","℗","℗","℗","℗","℗", 
+                   "℗","℗","℗","℗","℗","℗","℗","℗","℗","℗", 
+                   "℗","℗","℗","℗","℗","℗","℗","℗","℗","℗", 
+                   "℗","℗","℗","℗","℗","℗","℗","℗","℗","℗", 
+                   "℗","℗","℗","℗","℗","℗","℗","℗","℗","℗", 
+                   "℗","℗","℗","℗","℗","℗","℗","℗","℗","℗", 
+                   "℗","℗","℗","℗","℗","℗","℗","℗","℗","℗", 
+                   "℗","℗","℗","℗","℗","℗","℗","℗","℗","℗", 
+                   "poop","work sucks",                           //error code
+                   "poo","i hate you",
+                   "shit","fuck",
+                   "ass","poopy",
+                   "advanced radiology","adrian",                 //10
+                   "adrian sucks","this is stupid",
+                   "blagh","you suck",
+                   "your mom","ligma",
+                   "this sucks","this sux",
+                   "work sucks","work sux",                       //20
+                   "¶","¶","¶","¶","¶","¶","¶","¶","¶","¶",       //30
+                   "¶","¶","¶","¶","¶","¶","¶","¶","¶","¶",       //40
+                   "¶","¶","¶","¶","¶","¶","¶","¶","¶","¶",       //50
+                   "¶","¶","¶","¶","¶","¶","¶","¶","¶","¶",       //60
+                   "¶","¶","¶","¶","¶","¶","¶","¶","¶","¶",       //70
+                   "¶","¶","¶","¶","¶","¶","¶","¶","¶","¶",       //80
+                   "¶","¶","¶","¶","¶","¶","¶","¶","¶","¶",       //90
+                   "¶","¶","¶","¶","¶","¶","¶","¶","¶","test69"       //100 End err
+            ]
+  }
+  }
+  }
+  }
+  }
+  }
+  }
   
+
 function search(){
   var input = document.getElementById("userInput").value;
   var action = source1.indexOf(input.trim());
@@ -759,43 +873,43 @@ function search(){
   res2.innerHTML = noivpo;
   reswin.style.visibility = "visible";
   reswin.style.backgroundColor = "#c5edcc"; break;
-   }else{
+  }else{
   if(action > 300&&action <=400){
   res1.innerHTML = abdw
   res2.innerHTML = ivonly;
   reswin.style.visibility = "visible";
   reswin.style.backgroundColor = "#c5edcc"; break;
-     }else{
+  }else{
   if(action > 400&&action <=500){
   res1.innerHTML = abdpelwwo;
   res2.innerHTML = ivonly;
   reswin.style.visibility = "visible";
   reswin.style.backgroundColor = "#c5edcc"; break;
-    }else{
+  }else{
   if(action > 500&&action <=600){
   res1.innerHTML = abdpelw;
   res2.innerHTML = poiv;
   reswin.style.visibility = "visible";
   reswin.style.backgroundColor = "#c5edcc"; break;
-   }else{
+  }else{
   if(action > 600&&action <=700){
   res1.innerHTML = ctaabdpel;
   res2.innerHTML = ivonly;
   reswin.style.visibility = "visible";
   reswin.style.backgroundColor = "#c5edcc"; break;
-   }else{
+  }else{
   if(action > 700&&action <=800){
   res1.innerHTML = abdwwo;
   res2.innerHTML = adrenal;
   reswin.style.visibility = "visible";
   reswin.style.backgroundColor = "#c5edcc"; break;
-    }else{
+  }else{
   if(action > 800&&action <=900){
   res1.innerHTML = err;
   res2.innerHTML = errmsg;
   reswin.style.visibility = "visible";
   reswin.style.backgroundColor = "#c5edcc"; break;
-    }else{
+  }else{
   reswin.style.visibility = "hidden";
   res2.innerHTML = nofind; break;  //NA 
          }
@@ -807,7 +921,8 @@ function search(){
    }
   }
  }
-}while (d1.value == "6"){  //MR Head
+}
+  while (d1.value == "6"){  //MR Head
   if(action > -1&&action <=100){
   res1.innerHTML = mrheadwo;
   res2.innerHTML = nogad;
@@ -834,7 +949,7 @@ function search(){
   reswin.style.visibility = "hidden";
   res2.innerHTML = mrmsg; break;  //NA 
   }else{
-  if(action > 300&&action <=350){
+  if(action > 300&&action <=400){
   res1.innerHTML = mrorbits;
   res2.innerHTML = ivonly
   reswin.style.visibility = 'visible';
@@ -844,10 +959,22 @@ function search(){
   }else{
   if(action > 400&&action <=450){
   res1.innerHTML = mrahead;
-  res2.innerHTML = ivonly
+  res2.innerHTML = nogad;
   reswin.style.visibility = 'visible';
   reswin.style.backgroundColor = '#c5edcc'; break;
-  }else{  
+  }else{
+  if(action > 450&&action <=500){
+  res1.innerHTML = mrorbits;
+  res2.innerHTML = ivonly;
+  reswin.style.visibility = 'visible';
+  reswin.style.backgroundColor = '#c5edcc'; break;
+  }else{
+  if (action > 500&&action <600){
+  res1.innerHTML = err;
+  res2.innerHTML = errmsg;
+  reswin.style.visibility = 'visible';
+  reswin.style.backgroundColor = '#c5edcc'; break;
+  }else{
   reswin.style.visibility = "hidden";
   res2.innerHTML = mrmsg; break;  //NA 
 }
@@ -858,6 +985,34 @@ function search(){
 }
 }
 }
+}
+  while (d1.value == "7"){
+  if(action > -1&&action <100){
+  res1.innerHTML = mrneck;
+  res2.innerHTML = ivonly;
+  reswin.style.visibility = 'visible';
+  reswin.style.backgroundColor = '#c5edcc'; break;
+  }else{
+  if (action > 100&&action <200){
+  res1.innerHTML = mraneck;
+  res2.innerHTML = ivonly;
+  reswin.style.visibility = 'visible';
+  reswin.style.backgroundColor = '#c5edcc'; break;
+  }else{
+  if (action > 200&&action <300){
+  res1.innerHTML = err;
+  res2.innerHTML = errmsg;
+  reswin.style.visibility = 'visible';
+  reswin.style.backgroundColor = '#c5edcc'; break;
+  }else{
+  reswin.style.visibility = "hidden";
+  res2.innerHTML = mrmsg; break;  //NA 
+  }
+  }
+  }
+  }
+  }
+
 
 
 //Ä = Non-Contrast              (Total 100)
@@ -874,3 +1029,4 @@ function search(){
 //§ = CT Pelvis - MSK/Dry       (100 Total)
 //↕ = CT Urogram                (100 Total)
 //¶ = Error                     (Total 100)
+
