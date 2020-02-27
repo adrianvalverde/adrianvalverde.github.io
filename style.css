@@ -19,7 +19,6 @@
 }
 
 body{
-  background: #f2f2f2;
   font-family: 'Open Sans', sans-serif;
   overflow-x: auto;
 }
@@ -126,4 +125,3 @@ font-size: 14px;
   position: absolute;
   margin-left: 75%;
 }
-
