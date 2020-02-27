@@ -1,0 +1,129 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans);
+
+#cont1{ 
+  font-size: 13px;
+  height: 20px;
+  font-family: 'Open Sans', sans-serif;
+  position: absolute;
+  margin-left: 0%;
+  margin-top: -4%;
+}
+
+#header{
+  position: absolute;
+  color: #000000;
+  font-size: 13px;
+  font-family: 'Open Sans', sans-serif;
+  margin-left: 23%;
+  margin-top: -4%;
+}
+
+body{
+  background: #f2f2f2;
+  font-family: 'Open Sans', sans-serif;
+  overflow-x: auto;
+}
+
+
+
+#userInput{
+  float: left;
+  width: 100%;
+  padding: 5px;
+  height: 20px;
+  border-radius: 5px;
+  border: 2px solid grey;
+}
+
+.search{
+  width: 70%;
+  position: absolute;
+}
+
+#goButton{
+  position: absolute;  
+  width: 35px;
+  height: 35px;
+  border: 2px solid grey;
+  color: grey;
+  border-radius: 7px;
+  cursor: pointer;
+  font-size: 15px;
+}
+
+
+
+#pagewrap{
+  display: sticky;
+  width: 30%;
+  margin-top: 10%;
+  margin-left: 54%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+#rframe{
+  border: 1px dotted #000000; 
+  background-color: #9ec8ff;
+  border-radius: 20pt;
+  visibility: hidden;
+  margin-top: 14%;
+  margin-left: 15%;
+  position: absolute;
+  width: 73%;
+}
+  
+#results{
+z-index: -1;
+color: #000000;
+text-align: center;
+line-height: 0px;
+font-size: 14px;
+  
+}
+
+#results2{
+ z-index: -1;
+ color: #849e92;
+ margin-top: 20%;
+}
+
+
+
+
+#dropdown{
+  padding: 0px;
+  position: absolute;
+  left: -99pt;
+  top: 0.5pt;
+  width: 98pt;
+  height: 26pt; 
+  color: #fffff;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 12px;
+  border: 2px solid grey;; 
+}
+
+
+
+#imgres1{
+ display: none;
+}
+
+#oralcontrast{
+  cursor: pointer;
+  font-size: 10pt;
+  color: #8ea59a;
+  position: absolute;
+  
+}
+
+#ivcontrast{
+  cursor: pointer;
+  font-size: 10pt;
+  color: #8ea59a;
+  position: absolute;
+  margin-left: 75%;
+}
+
